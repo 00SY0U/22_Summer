@@ -1,0 +1,72 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="ソース ファイル">
+      <UniqueIdentifier>{4FC737F1-C7A5-4376-A066-2A32D752A2FF}</UniqueIdentifier>
+      <Extensions>cpp;c;cc;cxx;c++;cppm;ixx;def;odl;idl;hpj;bat;asm;asmx</Extensions>
+    </Filter>
+    <Filter Include="ヘッダー ファイル">
+      <UniqueIdentifier>{93995380-89BD-4b04-88EB-625FBE52EBFB}</UniqueIdentifier>
+      <Extensions>h;hh;hpp;hxx;h++;hm;inl;inc;ipp;xsd</Extensions>
+    </Filter>
+    <Filter Include="リソース ファイル">
+      <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
+      <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
+    </Filter>
+    <Filter Include="BaseClass">
+      <UniqueIdentifier>{9d3543ec-15aa-4491-a4e3-ed97f287ec1a}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Static">
+      <UniqueIdentifier>{941d869b-1887-42fd-99d7-0e1b90fd894b}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Container">
+      <UniqueIdentifier>{8803a73d-89a5-4bd8-ae37-6a5243fad156}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Object">
+      <UniqueIdentifier>{46701bdb-4d59-48a4-9a56-da3527505cdf}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="Main.cpp">
+      <Filter>ソース ファイル</Filter>
+    </ClCompile>
+    <ClCompile Include="Input.cpp">
+      <Filter>Static</Filter>
+    </ClCompile>
+    <ClCompile Include="Collision.cpp">
+      <Filter>Static</Filter>
+    </ClCompile>
+    <ClCompile Include="GameObject.cpp">
+      <Filter>BaseClass</Filter>
+    </ClCompile>
+    <ClCompile Include="Vec2.cpp">
+      <Filter>Container</Filter>
+    </ClCompile>
+    <ClCompile Include="Ground.cpp">
+      <Filter>Object</Filter>
+    </ClCompile>
+    <ClCompile Include="Player.cpp">
+      <Filter>Object</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="Input.h">
+      <Filter>Static</Filter>
+    </ClInclude>
+    <ClInclude Include="Collision.h">
+      <Filter>Static</Filter>
+    </ClInclude>
+    <ClInclude Include="GameObject.h">
+      <Filter>BaseClass</Filter>
+    </ClInclude>
+    <ClInclude Include="Vec2.h">
+      <Filter>Container</Filter>
+    </ClInclude>
+    <ClInclude Include="Ground.h">
+      <Filter>Object</Filter>
+    </ClInclude>
+    <ClInclude Include="Player.h">
+      <Filter>Object</Filter>
+    </ClInclude>
+  </ItemGroup>
+</Project>
