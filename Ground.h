@@ -10,6 +10,7 @@ public:
 	static bool CheckHitGround(GameObject* obj);
 	Ground(int _x, int _y, int _width, int _height);
 	~Ground();
-	void Draw();
+	void Update() override;
+	void Draw() override;
 };
 

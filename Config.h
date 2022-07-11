@@ -1,0 +1,7 @@
+#pragma once
+#define WIN_WIDTH 640
+#define WIN_HEIGHT 480
+#define COLOR_BIT_DEPTH 32
+#define GROUND_TILE_SIZE 50
+#define ITEM_TILE_SIZE 32
+#define PLAYER_TILE_SIZE 50

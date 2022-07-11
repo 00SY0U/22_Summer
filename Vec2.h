@@ -7,5 +7,6 @@ public:
 	Vec2();
 	Vec2(int _x, int _y);
 	Vec2 operator+(Vec2 v);
+	Vec2 operator+=(Vec2 v);
 };
 

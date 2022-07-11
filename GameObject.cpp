@@ -1,4 +1,5 @@
 #include "GameObject.h"
+#include "DxLib.h"
 
 std::list<GameObject*> GameObject::objs = std::list<GameObject*>();
 

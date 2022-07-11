@@ -4,17 +4,6 @@
 
 std::list<Ground*> Ground::objs = std::list<Ground*>();
 
-Ground::Ground(int _x, int _y, int _width, int _height)
-	: GameObject{ _x, _y, _width, _height }
-{
-	objs.push_back(this);
-}
-
-Ground::~Ground()
-{
-	objs.remove(this);
-}
-
 bool Ground::CheckHitGround(GameObject* obj)
 {
 	for (auto o : objs)
@@ -25,6 +14,22 @@ bool Ground::CheckHitGround(GameObject* obj)
 		}
 	}
 	return false;
+}
+
+Ground::Ground(int _x, int _y, int _width, int _height)
+	: GameObject{ _x, _y, _width, _height }
+{;
+	objs.push_back(this);
+}
+
+Ground::~Ground()
+{
+	objs.remove(this);
+}
+
+void Ground::Update()
+{
+	pos.x -= 5;
 }
 
 void Ground::Draw()

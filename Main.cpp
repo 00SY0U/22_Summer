@@ -1,14 +1,14 @@
 #include "DxLib.h"
-#include "Player.h"
-#include "Ground.h"
-#include "Collision.h"
+#include "Config.h"
+#include "GameObject.h"
+#include "StageCreator.h"
 
 int WINAPI WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, LPSTR lpCmdLine, int nCmdShow)
 {
     ChangeWindowMode(true);
     SetMainWindowText("Title");
     SetWindowIconID(LoadGraph(""));
-    SetGraphMode(1280, 720, 32);
+    SetGraphMode(WIN_WIDTH, WIN_HEIGHT, COLOR_BIT_DEPTH);
     SetDrawMode(DX_SCREEN_BACK);
 
     if (DxLib_Init() == -1)
@@ -16,10 +16,7 @@ int WINAPI WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, LPSTR lpCmdLine
         return -1;
     }
 
-    Player player(100, 500, 64, 64);
-    Ground ground1(0, 620, 1280, 100);
-    Ground ground2(400, 500, 1280, 100);
-    Ground ground3(800, 300, 1280, 100);
+    StageCreator::Load(StageLevel::Easy);
 
     while (ProcessMessage() == 0 && !CheckHitKey(KEY_INPUT_ESCAPE))
     {
@@ -30,6 +27,8 @@ int WINAPI WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, LPSTR lpCmdLine
 
         ScreenFlip();
     }
+
+    StageCreator::Delete();
 
     DxLib_End();
     return 0;

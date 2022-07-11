@@ -14,3 +14,9 @@ Vec2 Vec2::operator+(Vec2 v)
 {
 	return Vec2{ x + v.x, y + v.y };
 }
+
+Vec2 Vec2::operator+=(Vec2 v)
+{
+	x += v.x; y += v.y;
+	return *this;
+}

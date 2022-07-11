@@ -13,7 +13,7 @@ public:
 	static void UpdateAll();
 	static void DrawAll();
 	GameObject(int _x, int _y, int _width, int _height);
-	~GameObject();
+	virtual ~GameObject();
 	Vec2 GetPos();
 	int GetWidth();
 	int GetHeight();
