@@ -1,7 +1,6 @@
 #include "DxLib.h"
 #include "Config.h"
-#include "GameObject.h"
-#include "StageCreator.h"
+#include "GameManager.h"
 
 int WINAPI WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, LPSTR lpCmdLine, int nCmdShow)
 {
@@ -16,19 +15,18 @@ int WINAPI WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, LPSTR lpCmdLine
         return -1;
     }
 
-    StageCreator::Load(StageLevel::Easy);
+    GameManager::Init();
 
     while (ProcessMessage() == 0 && !CheckHitKey(KEY_INPUT_ESCAPE))
     {
         ClearDrawScreen();
 
-        GameObject::UpdateAll();
-        GameObject::DrawAll();
+        GameManager::Play();
 
         ScreenFlip();
     }
 
-    StageCreator::Delete();
+    GameManager::End();
 
     DxLib_End();
     return 0;

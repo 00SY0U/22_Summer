@@ -9,10 +9,15 @@ std::vector<GameObject*> StageCreator::objs = std::vector<GameObject*>();
 
 void StageCreator::LoadEasy()
 {
+	// プレイヤー
 	objs.push_back(new Player(30, 50, PLAYER_TILE_SIZE, PLAYER_TILE_SIZE));
-	objs.push_back(new Ground(0, WIN_HEIGHT - GROUND_TILE_SIZE, WIN_WIDTH * 3, GROUND_TILE_SIZE));
-	objs.push_back(new Ground(WIN_WIDTH, WIN_HEIGHT - GROUND_TILE_SIZE * 4.5, WIN_WIDTH * 3, GROUND_TILE_SIZE));
-	objs.push_back(new Ground(WIN_WIDTH * 1.5, WIN_HEIGHT - GROUND_TILE_SIZE * 8, WIN_WIDTH * 3, GROUND_TILE_SIZE));
+	// 地面
+	objs.push_back(new Ground(0, WIN_HEIGHT - GROUND_TILE_SIZE, WIN_WIDTH * 5, GROUND_TILE_SIZE));
+	// 中段
+	objs.push_back(new Ground(WIN_WIDTH, WIN_HEIGHT - GROUND_TILE_SIZE * 4.5, WIN_WIDTH, GROUND_TILE_SIZE));
+	objs.push_back(new Ground(WIN_WIDTH * 2.5, WIN_HEIGHT - GROUND_TILE_SIZE * 4.5, WIN_WIDTH, GROUND_TILE_SIZE));
+	// 上段
+	objs.push_back(new Ground(WIN_WIDTH * 1.5, WIN_HEIGHT - GROUND_TILE_SIZE * 8, WIN_WIDTH, GROUND_TILE_SIZE));
 }
 
 void StageCreator::LoadNormal()
