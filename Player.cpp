@@ -1,16 +1,17 @@
 #include "Player.h"
 #include "DxLib.h"
+#include "Config.h"
 #include "Input.h"
 #include "Ground.h"
 #include "Collision.h"
+#include "PositiveItem.h"
+#include "NegativeItem.h"
 
 Player::Player(int _x, int _y, int _width, int _height)
 	: GameObject{ _x, _y, _width, _height }
 {
-	// ステータス
-	speed = 10;
-	jumpPower = 50;
-	gravity = 20;
+	// 画像読み込み
+	graph = LoadGraph("resources\\images\\Player.png");
 
 	// 内部処理用
 	defaultXPos = 180;
@@ -21,16 +22,16 @@ Player::Player(int _x, int _y, int _width, int _height)
 void Player::CulcMovement()
 {
 	// 重力の適用
-	delta.y += gravity;
+	delta.y += GRAVITY;
 
 	// 左右操作
 	if (Input::Left())
 	{
-		delta.x -= speed;
+		delta.x -= PLAYER_SPEED;
 	}
 	if (Input::Right())
 	{
-		delta.x += speed;
+		delta.x += PLAYER_SPEED;
 	}
 
 	// ジャンプ操作の適用
@@ -42,10 +43,10 @@ void Player::CulcMovement()
 	// ジャンプ適用
 	if (jumpTimer > 0)
 	{
-		delta.y -= jumpPower * (30 - jumpTimer) / 30.0;
+		delta.y -= PLAYER_JUMP_POWER * (PLAYER_JUMP_TIME - jumpTimer) / (double)PLAYER_JUMP_TIME;
 		++jumpTimer;
 
-		if (jumpTimer > 30)
+		if (jumpTimer > PLAYER_JUMP_TIME)
 		{
 			jumpTimer = 0;
 		}
@@ -92,9 +93,16 @@ void Player::Update()
 
 	CulcMovement();
 	ApplyMove();
+
+	// アイテムとの当たり判定
+	PositiveItem::CheckHitPositiveItem(this);
+	NegativeItem::CheckHitNegativeItem(this);
 }
 
 void Player::Draw()
 {
-	DrawBox(pos.x, pos.y, pos.x + width, pos.y + height, GetColor(200, 200, 200), true);
+	// 当たり判定
+	// DrawBox(pos.x, pos.y, pos.x + width, pos.y + height, GetColor(200, 200, 200), true);
+	
+	DrawGraph(pos.x, pos.y, graph, true);
 }

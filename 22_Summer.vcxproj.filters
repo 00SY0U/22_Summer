@@ -25,6 +25,12 @@
     <Filter Include="Object">
       <UniqueIdentifier>{46701bdb-4d59-48a4-9a56-da3527505cdf}</UniqueIdentifier>
     </Filter>
+    <Filter Include="リソース ファイル\images">
+      <UniqueIdentifier>{7b51dc03-29d3-4afb-835f-8cecef7bfe6e}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="リソース ファイル\sounds">
+      <UniqueIdentifier>{9706d4cb-3839-4b74-8b18-69eef461e4f3}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Main.cpp">
@@ -54,8 +60,14 @@
     <ClCompile Include="StageCreator.cpp">
       <Filter>Static</Filter>
     </ClCompile>
+    <ClCompile Include="BackGround.cpp">
+      <Filter>Object</Filter>
+    </ClCompile>
     <ClCompile Include="GameManager.cpp">
-      <Filter>ソース ファイル</Filter>
+      <Filter>Static</Filter>
+    </ClCompile>
+    <ClCompile Include="NegativeItem.cpp">
+      <Filter>Object</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -86,8 +98,37 @@
     <ClInclude Include="StageCreator.h">
       <Filter>Static</Filter>
     </ClInclude>
-    <ClInclude Include="GameManager.h">
+    <ClInclude Include="BackGround.h">
+      <Filter>Object</Filter>
+    </ClInclude>
+    <ClInclude Include="StageLevel.h">
       <Filter>ヘッダー ファイル</Filter>
     </ClInclude>
+    <ClInclude Include="GameManager.h">
+      <Filter>Static</Filter>
+    </ClInclude>
+    <ClInclude Include="NegativeItem.h">
+      <Filter>Object</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <Image Include="resources\images\BackGround.png">
+      <Filter>リソース ファイル\images</Filter>
+    </Image>
+    <Image Include="resources\images\Block.png">
+      <Filter>リソース ファイル\images</Filter>
+    </Image>
+    <Image Include="resources\images\Fire.png">
+      <Filter>リソース ファイル\images</Filter>
+    </Image>
+    <Image Include="resources\images\Heart.png">
+      <Filter>リソース ファイル\images</Filter>
+    </Image>
+    <Image Include="resources\images\Player.png">
+      <Filter>リソース ファイル\images</Filter>
+    </Image>
+    <Image Include="resources\images\Snowflake.png">
+      <Filter>リソース ファイル\images</Filter>
+    </Image>
   </ItemGroup>
 </Project>

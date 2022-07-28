@@ -1,17 +1,17 @@
 #pragma once
 #include "GameObject.h"
 #include <list>
-class PositiveItem
+class NegativeItem
 	: public GameObject
 {
 private:
-	static std::list<PositiveItem*> objs;
+	static std::list<NegativeItem*> objs;
 	bool isGotten = false;
 	int graph;
 public:
-	static void CheckHitPositiveItem(GameObject* obj);
-	PositiveItem(int _x, int _y);
-	~PositiveItem();
+	static void CheckHitNegativeItem(GameObject* obj);
+	NegativeItem(int _x, int _y);
+	~NegativeItem();
 	void Update() override;
 	void Draw() override;
 };

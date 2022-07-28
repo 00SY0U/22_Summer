@@ -19,28 +19,41 @@
     </ProjectConfiguration>
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="BackGround.cpp" />
     <ClCompile Include="Collision.cpp" />
     <ClCompile Include="GameManager.cpp" />
     <ClCompile Include="GameObject.cpp" />
     <ClCompile Include="Ground.cpp" />
     <ClCompile Include="Input.cpp" />
     <ClCompile Include="Main.cpp" />
+    <ClCompile Include="NegativeItem.cpp" />
     <ClCompile Include="Player.cpp" />
     <ClCompile Include="PositiveItem.cpp" />
     <ClCompile Include="StageCreator.cpp" />
     <ClCompile Include="Vec2.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="BackGround.h" />
     <ClInclude Include="Collision.h" />
     <ClInclude Include="Config.h" />
     <ClInclude Include="GameManager.h" />
     <ClInclude Include="GameObject.h" />
     <ClInclude Include="Ground.h" />
     <ClInclude Include="Input.h" />
+    <ClInclude Include="NegativeItem.h" />
     <ClInclude Include="Player.h" />
     <ClInclude Include="PositiveItem.h" />
     <ClInclude Include="StageCreator.h" />
+    <ClInclude Include="StageLevel.h" />
     <ClInclude Include="Vec2.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <Image Include="resources\images\BackGround.png" />
+    <Image Include="resources\images\Block.png" />
+    <Image Include="resources\images\Fire.png" />
+    <Image Include="resources\images\Heart.png" />
+    <Image Include="resources\images\Player.png" />
+    <Image Include="resources\images\Snowflake.png" />
   </ItemGroup>
   <PropertyGroup Label="Globals">
     <VCProjectVersion>16.0</VCProjectVersion>

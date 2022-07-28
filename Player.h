@@ -4,9 +4,7 @@ class Player
 	: public GameObject
 {
 private:
-	int speed;
-	int jumpPower;
-	int gravity;
+	int graph;
 	int defaultXPos;
 	int jumpTimer;
 	bool onGround;

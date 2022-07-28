@@ -1,14 +1,7 @@
 #pragma once
 #include <vector>
 #include "GameObject.h"
-
-enum class StageLevel
-{
-	Easy = 0,
-	Normal,
-	Hard,
-	Extra
-};
+#include "StageLevel.h"
 
 class StageCreator
 {

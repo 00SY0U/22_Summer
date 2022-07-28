@@ -15,7 +15,7 @@ int WINAPI WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, LPSTR lpCmdLine
         return -1;
     }
 
-    GameManager::Init();
+    GameManager::Init(StageLevel::Easy);
 
     while (ProcessMessage() == 0 && !CheckHitKey(KEY_INPUT_ESCAPE))
     {

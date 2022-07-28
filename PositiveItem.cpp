@@ -1,32 +1,46 @@
 #include "PositiveItem.h"
+#include "DxLib.h"
+#include "Config.h"
 #include "Collision.h"
+#include "GameManager.h"
 
 std::list<PositiveItem*> PositiveItem::objs = std::list<PositiveItem*>();
 
-bool PositiveItem::CheckHitPositiveItem(GameObject* obj, PositiveItem*& out)
+void PositiveItem::CheckHitPositiveItem(GameObject* obj)
 {
 	for (auto o : objs)
 	{
-		if (Collision::CheckHit(obj, o))
+		if (!o->isGotten && Collision::CheckHit(obj, o))
 		{
-			if (out != nullptr)
-			{
-				out = o;
-			}
-			return true;
+			// ‰Á“_ˆ—
+			o->isGotten = true;
+			GameManager::AddScore();
 		}
 	}
-	out = nullptr;
-	return false;
 }
 
-PositiveItem::PositiveItem(int _x, int _y, int _width, int _height)
-	: GameObject{ _x, _y, _width, _height }
+PositiveItem::PositiveItem(int _x, int _y)
+	: GameObject{ _x, _y, TILE_SIZE, TILE_SIZE }
 {
+	isGotten = false;
+	graph = LoadGraph("resources\\images\\Snowflake.png");
 	objs.push_back(this);
 }
 
 PositiveItem::~PositiveItem()
 {
 	objs.remove(this);
+}
+
+void PositiveItem::Update()
+{
+	pos.x -= SCROLL_SPEED;
+}
+
+void PositiveItem::Draw()
+{
+	if (!isGotten)
+	{
+		DrawGraph(pos.x, pos.y, graph, true);
+	}
 }
