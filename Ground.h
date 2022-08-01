@@ -6,11 +6,10 @@ class Ground
 {
 private:
 	static std::list<Ground*> objs;
-	int graph;
-	int numBlocks;
+	static int graph;
 public:
 	static bool CheckHitGround(GameObject* obj);
-	Ground(int _x, int _y, int _numBlocks);
+	Ground(int _x, int _y);
 	~Ground();
 	void Update() override;
 	void Draw() override;

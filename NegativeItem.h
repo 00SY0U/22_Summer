@@ -6,8 +6,9 @@ class NegativeItem
 {
 private:
 	static std::list<NegativeItem*> objs;
+	static int graph;
+	static int sound;
 	bool isGotten = false;
-	int graph;
 public:
 	static void CheckHitNegativeItem(GameObject* obj);
 	NegativeItem(int _x, int _y);

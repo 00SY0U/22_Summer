@@ -4,7 +4,8 @@ class Player
 	: public GameObject
 {
 private:
-	int graph;
+	static int graph;
+	static int sound;
 	int defaultXPos;
 	int jumpTimer;
 	bool onGround;
@@ -13,7 +14,7 @@ private:
 	void CulcMovement();
 	void ApplyMove();
 public:
-	Player(int _x, int _y, int _width, int _height);
+	Player(int _x, int _y);
 	void Update() override;
 	void Draw() override;
 };

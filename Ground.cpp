@@ -4,6 +4,7 @@
 #include "Config.h"
 
 std::list<Ground*> Ground::objs = std::list<Ground*>();
+int Ground::graph = -1;
 
 bool Ground::CheckHitGround(GameObject* obj)
 {
@@ -17,10 +18,13 @@ bool Ground::CheckHitGround(GameObject* obj)
 	return false;
 }
 
-Ground::Ground(int _x, int _y, int _numBlocks)
-	: GameObject{ _x, _y, TILE_SIZE * _numBlocks, TILE_SIZE }, numBlocks{ _numBlocks }
+Ground::Ground(int _x, int _y)
+	: GameObject{ _x, _y, TILE_SIZE, TILE_SIZE }
 {
-	graph = LoadGraph("resources\\images\\Block.png");
+	if (graph == -1)
+	{
+		graph = LoadGraph("resources\\images\\Block.png");
+	}
 	objs.push_back(this);
 }
 
@@ -37,10 +41,5 @@ void Ground::Update()
 void Ground::Draw()
 {
 	// DrawBox(pos.x, pos.y, pos.x + width, pos.y + height, GetColor(255, 255, 255), true);
-	
-	for (int i = 0; i < numBlocks; ++i)
-	{
-		DrawGraph(pos.x + i * TILE_SIZE, pos.y, graph, false);
-	}
-
+	DrawGraph(pos.x, pos.y, graph, false);
 }

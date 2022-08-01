@@ -5,6 +5,8 @@
 #include "GameManager.h"
 
 std::list<PositiveItem*> PositiveItem::objs = std::list<PositiveItem*>();
+int PositiveItem::graph = -1;
+int PositiveItem::sound = -1;
 
 void PositiveItem::CheckHitPositiveItem(GameObject* obj)
 {
@@ -14,6 +16,7 @@ void PositiveItem::CheckHitPositiveItem(GameObject* obj)
 		{
 			// ‰Á“_ˆ—
 			o->isGotten = true;
+			PlaySoundMem(sound, DX_PLAYTYPE_BACK);
 			GameManager::AddScore();
 		}
 	}
@@ -22,8 +25,15 @@ void PositiveItem::CheckHitPositiveItem(GameObject* obj)
 PositiveItem::PositiveItem(int _x, int _y)
 	: GameObject{ _x, _y, TILE_SIZE, TILE_SIZE }
 {
+	if (graph == -1)
+	{
+		graph = LoadGraph("resources\\images\\Snowflake.png");
+	}
+	if (sound == -1)
+	{
+		sound = LoadSoundMem("resources\\sounds\\cion.wav");
+	}
 	isGotten = false;
-	graph = LoadGraph("resources\\images\\Snowflake.png");
 	objs.push_back(this);
 }
 

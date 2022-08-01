@@ -10,9 +10,11 @@
 #define SCROLL_SPEED 6
 
 #define PLAYER_SPEED 10
-#define PLAYER_JUMP_POWER 45
+#define PLAYER_JUMP_POWER 40
 #define PLAYER_JUMP_TIME 30
-#define GRAVITY 18
+#define GRAVITY 15
 
 #define SCORE_TIME 1
-#define SCORE_ITEM 1000
+#define SCORE_ITEM 500
+
+#define TIME_LIMIT 180

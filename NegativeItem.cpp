@@ -5,6 +5,8 @@
 #include "GameManager.h"
 
 std::list<NegativeItem*> NegativeItem::objs = std::list<NegativeItem*>();
+int NegativeItem::graph = -1;
+int NegativeItem::sound = -1;
 
 void NegativeItem::CheckHitNegativeItem(GameObject* obj)
 {
@@ -14,6 +16,7 @@ void NegativeItem::CheckHitNegativeItem(GameObject* obj)
 		{
 			// ƒ_ƒ[ƒWˆ—
 			o->isGotten = true;
+			PlaySoundMem(sound, DX_PLAYTYPE_BACK);
 			GameManager::Damage();
 		}
 	}
@@ -22,8 +25,15 @@ void NegativeItem::CheckHitNegativeItem(GameObject* obj)
 NegativeItem::NegativeItem(int _x, int _y)
 	: GameObject{ _x, _y, TILE_SIZE, TILE_SIZE }
 {
+	if (graph == -1)
+	{
+		graph = LoadGraph("resources\\images\\Fire.png");
+	}
+	if (sound == -1)
+	{
+		sound = LoadSoundMem("resources\\sounds\\fire.wav");
+	}
 	isGotten = false;
-	graph = LoadGraph("resources\\images\\Fire.png");
 	objs.push_back(this);
 }
 

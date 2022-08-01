@@ -4,7 +4,7 @@ class BackGround
 	: public GameObject
 {
 private:
-	int graph;
+	static int graph;
 public:
 	BackGround();
 	void Draw() override;

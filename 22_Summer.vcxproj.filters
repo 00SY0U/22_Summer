@@ -31,6 +31,9 @@
     <Filter Include="リソース ファイル\sounds">
       <UniqueIdentifier>{9706d4cb-3839-4b74-8b18-69eef461e4f3}</UniqueIdentifier>
     </Filter>
+    <Filter Include="リソース ファイル\stages">
+      <UniqueIdentifier>{be4e553b-7d98-43e0-b8a6-6c2c89800258}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Main.cpp">
@@ -130,5 +133,36 @@
     <Image Include="resources\images\Snowflake.png">
       <Filter>リソース ファイル\images</Filter>
     </Image>
+  </ItemGroup>
+  <ItemGroup>
+    <Text Include="resources\stages\Hard.txt">
+      <Filter>リソース ファイル\stages</Filter>
+    </Text>
+    <Text Include="resources\stages\Normal.txt">
+      <Filter>リソース ファイル\stages</Filter>
+    </Text>
+    <Text Include="resources\stages\Easy.txt">
+      <Filter>リソース ファイル\stages</Filter>
+    </Text>
+    <Text Include="resources\stages\Extra.txt">
+      <Filter>リソース ファイル\stages</Filter>
+    </Text>
+  </ItemGroup>
+  <ItemGroup>
+    <Media Include="resources\sounds\cion.wav">
+      <Filter>リソース ファイル\sounds</Filter>
+    </Media>
+    <Media Include="resources\sounds\fire.wav">
+      <Filter>リソース ファイル\sounds</Filter>
+    </Media>
+    <Media Include="resources\sounds\gameover.wav">
+      <Filter>リソース ファイル\sounds</Filter>
+    </Media>
+    <Media Include="resources\sounds\jump.wav">
+      <Filter>リソース ファイル\sounds</Filter>
+    </Media>
+    <Media Include="resources\sounds\planB.wav">
+      <Filter>リソース ファイル\sounds</Filter>
+    </Media>
   </ItemGroup>
 </Project>

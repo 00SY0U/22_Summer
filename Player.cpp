@@ -2,16 +2,26 @@
 #include "DxLib.h"
 #include "Config.h"
 #include "Input.h"
+#include "GameManager.h"
 #include "Ground.h"
 #include "Collision.h"
 #include "PositiveItem.h"
 #include "NegativeItem.h"
 
-Player::Player(int _x, int _y, int _width, int _height)
-	: GameObject{ _x, _y, _width, _height }
+int Player::graph = -1;
+int Player::sound = -1;
+
+Player::Player(int _x, int _y)
+	: GameObject{ _x, _y, PLAYER_WIDTH, PLAYER_HEIGHT }
 {
-	// 画像読み込み
-	graph = LoadGraph("resources\\images\\Player.png");
+	if (graph == -1)
+	{
+		graph = LoadGraph("resources\\images\\Player.png");
+	}
+	if (sound == -1)
+	{
+		sound = LoadSoundMem("resources\\sounds\\jump.wav");
+	}
 
 	// 内部処理用
 	defaultXPos = 180;
@@ -37,6 +47,7 @@ void Player::CulcMovement()
 	// ジャンプ操作の適用
 	if (onGround && Input::Jump())
 	{
+		PlaySoundMem(sound, DX_PLAYTYPE_BACK);
 		jumpTimer = 1;
 	}
 
@@ -55,7 +66,7 @@ void Player::CulcMovement()
 
 void Player::ApplyMove()
 {
-	// めり込み防止処理
+	// めり込み防止処理等
 	pos.x += delta.x;
 	while (Ground::CheckHitGround(this))
 	{
@@ -67,6 +78,10 @@ void Player::ApplyMove()
 		{
 			--pos.x;
 		}
+	}
+	if (pos.x > WIN_WIDTH - width)
+	{
+		pos.x = WIN_WIDTH - width;
 	}
 
 	onGround = false;
@@ -97,6 +112,12 @@ void Player::Update()
 	// アイテムとの当たり判定
 	PositiveItem::CheckHitPositiveItem(this);
 	NegativeItem::CheckHitNegativeItem(this);
+
+	// 左端, 落下ゲームオーバー判定
+	if (pos.x <= - width * 3 || pos.y >= WIN_WIDTH + height * 3)
+	{
+		GameManager::GameOver();
+	}
 }
 
 void Player::Draw()

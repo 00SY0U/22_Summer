@@ -55,6 +55,19 @@
     <Image Include="resources\images\Player.png" />
     <Image Include="resources\images\Snowflake.png" />
   </ItemGroup>
+  <ItemGroup>
+    <Text Include="resources\stages\Easy.txt" />
+    <Text Include="resources\stages\Extra.txt" />
+    <Text Include="resources\stages\Hard.txt" />
+    <Text Include="resources\stages\Normal.txt" />
+  </ItemGroup>
+  <ItemGroup>
+    <Media Include="resources\sounds\cion.wav" />
+    <Media Include="resources\sounds\fire.wav" />
+    <Media Include="resources\sounds\gameover.wav" />
+    <Media Include="resources\sounds\jump.wav" />
+    <Media Include="resources\sounds\planB.wav" />
+  </ItemGroup>
   <PropertyGroup Label="Globals">
     <VCProjectVersion>16.0</VCProjectVersion>
     <Keyword>Win32Proj</Keyword>
